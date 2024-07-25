@@ -10,6 +10,13 @@ app.get('/', (req,res) => {
 app.get('/menu', (req,res) => {
   res.render('menu',{ menu: RESTAURANT.menu})
 })
+
+app.get('/menu/:category', (req,res) => {
+  const category = req.params.category.toLowerCase()
+  const filteredMenu = RESTAURANT.menu.filter(item => item.category === category)
+  res.render('category', {menuItems: filteredMenu, category})
+})
+
 app.listen(3000);
 
 
