@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Green Byte Bistro</title>
+</head>
+<body>
+  <h1>Home Page</h1>
+  <h2>Resturant Details</h2>
+  <p><strong>Name:</strong> <%= restaurant.name %></p>
+  <p><strong>Address:</strong><%=  restaurant.address %></p> 
+  <p><strong>Phone:</strong> <%= restaurant.phone %></p>
+
+  <% if (restaurant.isOpen) { %>
+    <p>Yes, we are open!</p>
+  <% } else { %>
+    <p>Sorry, we are closed.</p>
+    <% } %>
+
+  <h2>Menu</h2>
+  <ul>
+    <% restaurant.menu.forEach(item => { %>
+    <li><%= item.name %> - $<%= item.price.toFixed(2) %></li>
+    <% }) %>
+  </ul>
+</body>
+</html>
