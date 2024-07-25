@@ -6,6 +6,10 @@ app.set("view engine", "ejs")
 app.get('/', (req,res) => {
   res.render('home', { restaurant:RESTAURANT})
 })
+
+app.get('/menu', (req,res) => {
+  res.render('menu',{ menu: RESTAURANT.menu})
+})
 app.listen(3000);
 
 
